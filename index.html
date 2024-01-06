@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC.LR Marketing Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/15dd70233e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="header">
+        <div class="container">
+
+            <nav>
+                <img src="images/logo2.png" class="logo">
+                <ul id="side-menu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class=" fas fa-solid fa-bars"onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Welcome to AC.LR Solutions</p>
+                <h1>Hi, I'm <span>Liah</span><br>Ask Help for any Assistant</h1>
+            </div>
+        </div>
+
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img  class="aclr-pic"src="images/liah4.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About AC.LR Solutions</h1>
+                    <p class="subtitle-p">
+                        Welcome to AC.LR Solutions, your trusted partner for innovative and comprehensive marketing solutions.
+                         We are a dynamic and forward-thinking brand creative marketing solutions company with a global presence, 
+                         offering a wide range of services to help businesses thrive in today's competitive landscape. With offices in India, 
+                          we have established ourselves as a leading provider of strategic marketing solutions across 
+                         multiple industries.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="services">
+        <div class="container">
+            <h1 class="subtitle"><span>Services</span></h1>
+            <div class="services-list">
+                <div >
+                    <i class="fa-solid fa-headset"></i>
+                    <h2>Brand Communications</h2>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-people-group"></i>
+                    <h2>Influencer Marketing</h2>
+                    
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-sitemap"></i>
+                    <h2>Event Video Production</h2>
+                    <a href="#">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-film"></i>
+                    <h2>Brand Film</h2>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                   <h1 class="subtitle ">Contact </h1>
+                   <p><i class="fa-solid fa-paper-plane"></i>contact@example.com</p>
+                   <p><i class="fa-solid fa-phone"></i>9122472169</p>
+                   <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                   </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your name" required>
+                        <input type="email" name="email"placeholder="Your email" required>
+                        <textarea name="Message"  rows="6" placeholder="Your Message"></textarea>
+                        <button class="btn btn2" type="submit">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ AC.LR Solutions</p>
+        </div>
+    </div>
+    <script>
+        var sidemenu=document.getElementById("side-menu");
+        function openmenu(){
+            sidemenu.style.right="0";
+        }
+
+        function closemenu(){
+            sidemenu.style.right="-200px";
+        }
+
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMZQjfd62fKkCNl_OKBrWCF0POF0HadESghjiYUqiMLBdxaZRCy8z-LPalb-hcr2O9bQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg=document.getElementById('msg');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message Sent Successfully!"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+</body>
+</html>
